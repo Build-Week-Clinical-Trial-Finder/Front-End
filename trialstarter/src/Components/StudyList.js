@@ -10,7 +10,7 @@ export default function StudyList() {
       .get("https://trial-finder-bw.herokuapp.com/api/watchlist/")
       .then(result => {
         console.log(result);
-        setStudies(result.data.results);
+        setStudies(result.data);
       })
       .catch(err => {
         console.log(err);
