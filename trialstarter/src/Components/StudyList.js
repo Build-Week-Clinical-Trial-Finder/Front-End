@@ -7,7 +7,7 @@ export default function StudyList() {
 
     useEffect(() => {
     axiosWithAuth()
-      .get("https://build-clinical-trial-finder.herokuapp.com/api/watchlist/")
+      .get("https://trial-finder-bw.herokuapp.com/api/watchlist/")
       .then(result => {
         console.log(result);
         setStudies(result.data.results);
