@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axiosWithAuth from "./axiosAuth.js";
+import StudyCard from "./StudyCard.js";
 
-export default function StudyList() {
+export default function StudyList(props) {
 
     const [studies, setStudies] = useState([]);
 
@@ -21,7 +22,17 @@ export default function StudyList() {
         <div>
             {studies.map(study => {
                 console.log(study);
+                return (
+                  <StudyCard
+                    title={study.brief_title}
+                    description={study.brief_summary}
+                    status={study.overall_status}
+                    state={study.state}
+                    city={study.city}
+                    key={study.users_id}
+                  />
+                );
             })}
         </div>
-    )
+    );
 }
