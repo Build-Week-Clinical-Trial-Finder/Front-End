@@ -1,9 +1,13 @@
 import React from "react";
 import logo from "../trialstarter.svg";
+import SearchBar from "./SearchBar.js";
 
-export default function Header() {
+export default function Header(props) {
 
     return (
-        <img src={logo} alt="logo" />
-    )
+      <header>
+        <img src={logo} alt="logo" className="logo" />
+        <SearchBar studies={props.studies}/>
+      </header>
+    );
 }

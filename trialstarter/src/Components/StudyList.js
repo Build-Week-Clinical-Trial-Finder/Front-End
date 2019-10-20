@@ -1,38 +1,37 @@
 import React, { useEffect, useState } from "react";
-import axiosWithAuth from "./axiosAuth.js";
 import StudyCard from "./StudyCard.js";
 
 export default function StudyList(props) {
 
-    const [studies, setStudies] = useState([]);
+    // const [studies, setStudies] = useState([]);
 
-    useEffect(() => {
-    axiosWithAuth()
-      .get("https://trial-finder-bw.herokuapp.com/api/watchlist/")
-      .then(result => {
-        console.log(result);
-        setStudies(result.data);
-      })
-      .catch(err => {
-        console.log(err);
-      });
-    }, []);
+    // useEffect(() => {
+    // axiosWithAuth()
+    //   .get("https://trial-finder-bw.herokuapp.com/api/watchlist/")
+    //   .then(result => {
+    //     console.log(result);
+    //     setStudies(result.data);
+    //   })
+    //   .catch(err => {
+    //     console.log(err);
+    //   });
+    // }, []);
 
     return (
-        <div>
-            {studies.map(study => {
-                console.log(study);
-                return (
-                  <StudyCard
-                    title={study.brief_title}
-                    description={study.brief_summary}
-                    status={study.overall_status}
-                    state={study.state}
-                    city={study.city}
-                    key={study.users_id}
-                  />
-                );
-            })}
-        </div>
+      <div className="study-list">
+        {!!props.studies && props.studies.map(study => {
+          console.log(study);
+          return (
+            <StudyCard
+              title={study.brief_title}
+              description={study.brief_summary}
+              status={study.overall_status}
+              state={study.state}
+              city={study.city}
+              key={study.users_id}
+            />
+          );
+        })}
+      </div>
     );
 }
