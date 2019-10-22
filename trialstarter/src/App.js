@@ -3,6 +3,7 @@ import axiosWithAuth from "./Components/axiosAuth.js";
 import './App.css';
 import StudyList from "./Components/StudyList.js";
 import Header from "./Components/Header.js";
+import Login from './Components/Login.js';
 
 function App(props) {
 
@@ -21,6 +22,7 @@ function App(props) {
   }, []);
 
   console.log(studies);
+
 
   return (
     <div className="container">
