@@ -9,12 +9,16 @@ function App(props) {
 
   const [studies, setStudies] = useState([]);
 
+  const [searchResults, setSearchResults] = useState([]);
+
   useEffect(() => {
     axiosWithAuth()
       .get("https://trial-finder-bw.herokuapp.com/api/watchlist/")
       .then(result => {
         console.log(result);
+        console.log("axios call fired");
         setStudies(result.data);
+        setSearchResults(result.data);
       })
       .catch(err => {
         console.log(err);
@@ -26,8 +30,12 @@ function App(props) {
 
   return (
     <div className="container">
-      <Header studies={studies}/>
-      <StudyList studies={studies} />
+      <Header
+        searchResults={searchResults}
+        setSearchResults={setSearchResults}
+        studies={studies}
+      />
+      <StudyList searchResults={searchResults} />
     </div>
   );
 }

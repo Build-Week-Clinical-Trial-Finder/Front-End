@@ -19,19 +19,20 @@ export default function StudyList(props) {
 
     return (
       <div className="study-list">
-        {!!props.studies && props.studies.map(study => {
-          console.log(study);
-          return (
-            <StudyCard
-              title={study.brief_title}
-              description={study.brief_summary}
-              status={study.overall_status}
-              state={study.state}
-              city={study.city}
-              key={study.users_id}
-            />
-          );
-        })}
+        {!!props.searchResults &&
+          props.searchResults.map(study => {
+            console.log(study);
+            return (
+              <StudyCard
+                title={study.brief_title}
+                description={study.brief_summary}
+                status={study.overall_status}
+                state={study.state}
+                city={study.city}
+                key={study.users_id}
+              />
+            );
+          })}
       </div>
     );
 }
