@@ -1,0 +1,4 @@
+[build]
+base = "trialstarter/"
+publish = "trialstarter/build/"
+command = "yarn build"
