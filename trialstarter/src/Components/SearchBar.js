@@ -4,26 +4,30 @@ export default function SearchForm(props) {
 
     const [searchTerm, setSearchTerm] = useState("");
 
-    const [searchResults, setSearchResults] = useState([]);
+    // const [searchResults, setSearchResults] = useState([]);
+
+    console.log(props.searchResults);
 
     useEffect(() => {
         const results = props.studies.filter(study =>
-          study
+          study.brief_summary
             .toString()
             .toLowerCase()
             .includes(searchTerm)
         );
-        setSearchResults(results);
+        props.setSearchResults(results);
     }, [searchTerm]);
 
     const handleChange = event => {
         setSearchTerm(event.target.value);
     };
 
+    // console.log(searchResults);
+
     return (
       <div className="search-container">
         <form>
-          <label for="studies" className="search-label">
+          <label htmlFor="studies" className="search-label">
             <input
               id="studies"
               type="text"
